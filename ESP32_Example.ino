@@ -66,6 +66,7 @@ void sendPostureEvent() {
     http.begin(serverUrl);
     http.addHeader("Content-Type", "application/json");
     http.addHeader("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlreHZmb25ic2FqdmFhcW5ncm1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIyNzE4ODMsImV4cCI6MjA3Nzg0Nzg4M30.lOGIOLtdYt2e5JNqHnFGlEYU1E8tmmZzzc5KhYtz4B8");
+    http.addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlreHZmb25ic2FqdmFhcW5ncm1uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIyNzE4ODMsImV4cCI6MjA3Nzg0Nzg4M30.lOGIOLtdYt2e5JNqHnFGlEYU1E8tmmZzzc5KhYtz4B8");
     
     // Crear JSON body (puede estar vacío, el servidor usa timestamp automático)
     StaticJsonDocument<200> doc;
