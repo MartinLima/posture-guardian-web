@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { startOfDay, startOfWeek, startOfMonth, format, subDays } from "date-fns";
+import { es } from "date-fns/locale";
 
 interface PostureEvent {
   id: string;
@@ -40,13 +41,13 @@ export const usePostureStats = () => {
     const weeklyMap = new Map<string, number>();
     for (let i = 0; i < 7; i++) {
       const day = subDays(new Date(), 6 - i);
-      weeklyMap.set(format(day, 'EEE'), 0);
+      weeklyMap.set(format(day, 'EEE', { locale: es }), 0);
     }
 
     events.forEach(event => {
       const eventDate = new Date(event.timestamp);
       if (eventDate >= weekStart) {
-        const dayName = format(eventDate, 'EEE');
+        const dayName = format(eventDate, 'EEE', { locale: es });
         weeklyMap.set(dayName, (weeklyMap.get(dayName) || 0) + 1);
       }
     });

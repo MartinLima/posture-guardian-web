@@ -36,7 +36,13 @@ export const MetricCard = ({
       severityStyles[severity]
     )}>
       <CardContent className="p-6">
-        <div className="flex items-start justify-between">
+        <div className="flex flex-col items-center justify-center text-center">
+          <div className={cn(
+            "rounded-full p-3 bg-background/50 mb-4",
+            iconStyles[severity]
+          )}>
+            <Icon className="w-6 h-6" />
+          </div>
           <div className="space-y-2">
             <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
               {title}
@@ -49,12 +55,6 @@ export const MetricCard = ({
                 {subtitle}
               </p>
             )}
-          </div>
-          <div className={cn(
-            "rounded-full p-3 bg-background/50",
-            iconStyles[severity]
-          )}>
-            <Icon className="w-6 h-6" />
           </div>
         </div>
       </CardContent>
